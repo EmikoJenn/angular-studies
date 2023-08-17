@@ -10,7 +10,6 @@ export class SidebarComponent {
   constructor(private gifsService: GifsService) {}
 
   get tags() {
-    if (this.gifsService.tagsHistory.length === 0) return ['Pacman'];
     return this.gifsService.tagsHistory;
   }
 

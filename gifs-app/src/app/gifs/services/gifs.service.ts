@@ -11,7 +11,9 @@ export class GifsService {
   private _tagsHistory: string[] = [];
   private _results: Gif[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.loadLocalStorage();
+  }
 
   get tagsHistory() {
     return [...this._tagsHistory];
@@ -39,7 +41,7 @@ export class GifsService {
   private shapeHistory() {
     if (this._tagsHistory.length > 10)
       this._tagsHistory = this._tagsHistory.splice(0, 10);
-    this.saveLocalStorage();
+    this.saveLocalStorage(this._tagsHistory);
   }
 
   private GetGifs(tag: string, limit: string = '10') {
@@ -55,8 +57,14 @@ export class GifsService {
       .subscribe((res) => (this._results = res.data));
   }
 
-  private saveLocalStorage() {
-    localStorage.setItem('tagsHistory', JSON.stringify(this._tagsHistory));
+  private saveLocalStorage(data: string[]) {
+    localStorage.setItem('tagsHistory', JSON.stringify(data));
+  }
+
+  private loadLocalStorage() {
+    this._tagsHistory = JSON.parse(localStorage.getItem('tagsHistory') || '[]');
+    if (this._tagsHistory.length === 0) this.searchTag('pacman');
+    else this.searchTag(this._tagsHistory[0]);
   }
 
   searchTag(tag: string) {
