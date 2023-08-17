@@ -39,6 +39,7 @@ export class GifsService {
   private shapeHistory() {
     if (this._tagsHistory.length > 10)
       this._tagsHistory = this._tagsHistory.splice(0, 10);
+    this.saveLocalStorage();
   }
 
   private GetGifs(tag: string, limit: string = '10') {
@@ -52,6 +53,10 @@ export class GifsService {
     this.http
       .get<SearchResponse>(`${this._giphyUrl}/search`, { params })
       .subscribe((res) => (this._results = res.data));
+  }
+
+  private saveLocalStorage() {
+    localStorage.setItem('tagsHistory', JSON.stringify(this._tagsHistory));
   }
 
   searchTag(tag: string) {
