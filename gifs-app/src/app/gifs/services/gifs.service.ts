@@ -9,7 +9,7 @@ export class GifsService {
   private _apiKey: string = 'dqXTiTrfjuAOHLTCqtA3F5EoFd9r3c4w';
   private _giphyUrl = 'https://api.giphy.com/v1/gifs';
   private _tagsHistory: string[] = [];
-  private _results: Gif[] = [];
+  private _results: { data: Gif[]; tag: string } = { data: [], tag: '' };
 
   constructor(private http: HttpClient) {
     this.loadLocalStorage();
@@ -20,13 +20,13 @@ export class GifsService {
   }
 
   get results() {
-    return [...this._results];
+    return [...this._results.data];
   }
 
   private organizeHistory(tag: string) {
     tag = tag.trim().toLowerCase();
 
-    if (this._tagsHistory[0] === tag) return 'repeated';
+    if (tag === this._results.tag) return 'repeated';
 
     if (this._tagsHistory.includes(tag)) {
       this._tagsHistory = this._tagsHistory.filter(
@@ -54,7 +54,7 @@ export class GifsService {
 
     this.http
       .get<SearchResponse>(`${this._giphyUrl}/search`, { params })
-      .subscribe((res) => (this._results = res.data));
+      .subscribe((res) => (this._results = { data: res.data, tag }));
   }
 
   private saveLocalStorage(data: string[]) {
@@ -62,9 +62,10 @@ export class GifsService {
   }
 
   private loadLocalStorage() {
-    this._tagsHistory = JSON.parse(localStorage.getItem('tagsHistory') || '[]');
-    if (this._tagsHistory.length === 0) this.searchTag('pacman');
-    else this.searchTag(this._tagsHistory[0]);
+    this._tagsHistory = JSON.parse(
+      localStorage.getItem('tagsHistory') || '["pacman"]'
+    );
+    this.searchTag(this._tagsHistory[0]);
   }
 
   searchTag(tag: string) {
