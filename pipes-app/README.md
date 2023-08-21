@@ -1,27 +1,31 @@
 # PipesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+Following the guided course "Angular: de cero a Experto" by Fernando Herrera
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Firs you need to know that these projects are just for learning and are not meant to be used but if you installed my Angular projects folder this is the way to use this one
 
-## Code scaffolding
+Change Directory to the folder of the project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+cd <repo-clone-name>/pipes-app
+```
 
-## Build
+example `cd angular-studies/pipes-app`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install dependencies with npm, example `npm install`
 
-## Running unit tests
+## how to run
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- First install the Angular CLI globally `npm run -g @angular/cli`.
 
-## Running end-to-end tests
+- then run one of these commands:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```javascript
+npm run serve
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```javascript
+ng serve
+```
