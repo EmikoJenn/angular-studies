@@ -11,9 +11,34 @@ export class MenuComponent {
 
   ngOnInit() {
     this.items = [
-      { label: 'New', icon: 'pi pi-fw pi-plus' },
-      { label: 'Open', icon: 'pi pi-fw pi-download' },
-      { label: 'Undo', icon: 'pi pi-fw pi-refresh' },
+      {
+        label: 'Angular Pipes',
+        icon: 'pi pi-desktop',
+        items: [
+          {
+            label: 'Text and Dates',
+            icon: 'pi pi-align-left',
+          },
+          {
+            label: 'Numbers',
+            icon: 'pi pi-dollar',
+          },
+          {
+            label: 'No Common Use',
+            icon: 'pi pi-tags',
+          },
+        ],
+      },
+      {
+        label: 'Custom Pipes',
+        icon: 'pi pi-cog',
+        items: [
+          {
+            label: 'New Pipe',
+            icon: 'pi pi-cog',
+          },
+        ],
+      },
     ];
   }
 }
