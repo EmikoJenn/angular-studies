@@ -4,7 +4,6 @@ import { MenuItem } from 'primeng/api';
 @Component({
   selector: 'shared-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
   items: MenuItem[] = [];
