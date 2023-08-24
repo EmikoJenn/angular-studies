@@ -15,16 +15,24 @@ export class MenuComponent {
         icon: 'pi pi-desktop',
         items: [
           {
+            label: 'Basic Pipes',
+            icon: 'pi pi-arrow-circle-left',
+            routerLink: 'products',
+          },
+          {
             label: 'Text and Dates',
             icon: 'pi pi-align-left',
+            routerLink: 'products/text-dates',
           },
           {
             label: 'Numbers',
             icon: 'pi pi-dollar',
+            routerLink: 'products/numbers',
           },
           {
             label: 'No Common Use',
             icon: 'pi pi-tags',
+            routerLink: 'products/no-common',
           },
         ],
       },
