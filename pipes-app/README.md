@@ -4,7 +4,7 @@ Following the guided course "Angular: de cero a Experto" by Fernando Herrera
 
 ## Installation
 
-Firs you need to know that these projects are just for learning and are not meant to be used but if you installed my Angular projects folder this is the way to use this one
+First you need to know that these projects are just for learning and are not meant to be used but if you installed my Angular projects folder this is the way to use this one
 
 Change Directory to the folder of the project
 
