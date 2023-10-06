@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-between py-4">
+  <form action="">
+    <input type="text" name="" id="" />
+    <input type="submit" value="search" />
+  </form>
+  <div class="">
+    <button>sort by name</button>
+    <button>sort by price</button>
+  </div>
+</div>
+<div class="row g-3 w-100">
+  <div *ngFor="let item of Store" class="col-3">
+    <div class="card">
+      <img
+        [src]="item.image"
+        [alt]="item.image"
+        class="card-img-top p-2"
+        style="height: 12rem; object-fit: contain"
+      />
+      <div class="card-body">
+        <div class="card-titletext-md" style="height: 12rem; overflow-y: auto">
+          <h5>{{ item.title }}</h5>
+          <h6>{{ item.price }}</h6>
+        </div>
+        <button class="btn btn-primary w-100">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
